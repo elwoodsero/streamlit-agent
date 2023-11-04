@@ -44,25 +44,25 @@ else:
 # Tools setup
 llm = OpenAI(temperature=0, openai_api_key=openai_api_key, streaming=True)
 search = DuckDuckGoSearchAPIWrapper()
-llm_math_chain = LLMMathChain.from_llm(llm)
+#llm_math_chain = LLMMathChain.from_llm(llm)
 db = SQLDatabase.from_uri(f"sqlite:///{DB_PATH}")
 db_chain = SQLDatabaseChain.from_llm(llm, db)
 tools = [
     Tool(
         name="Search",
         func=search.run,
-        description="useful for when you need to answer questions about current events. You should ask targeted questions",
+        description="useful for when you need to answer questions about current events. Searches should only include content from https://newcastle.nsw.gov.au/ website",
     ),
-    Tool(
-        name="Calculator",
-        func=llm_math_chain.run,
-        description="useful for when you need to answer questions about math",
-    ),
+    #Tool(
+    #    name="Calculator",
+    #    func=llm_math_chain.run,
+    #    description="useful for when you need to answer questions about math",
+    #),
     Tool(
         name="FooBar DB",
         func=db_chain.run,
         description="useful for when you need to answer questions about FooBar. Input should be in the form of a question containing full context",
-    ),
+    )
 ]
 
 # Initialize agent
