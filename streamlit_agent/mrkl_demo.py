@@ -43,7 +43,7 @@ else:
 
 # Tools setup
 llm = OpenAI(temperature=0, openai_api_key=openai_api_key, streaming=True)
-search = DuckDuckGoSearchAPIWrapper()
+search = DuckDuckGoSearchResults()
 llm_math_chain = LLMMathChain.from_llm(llm)
 db = SQLDatabase.from_uri(f"sqlite:///{DB_PATH}")
 db_chain = SQLDatabaseChain.from_llm(llm, db)
