@@ -46,7 +46,7 @@ st.set_page_config(
 #    enable_custom = False
 
 # Tools setup
-llm = OpenAI(temperature=0, openai_api_key=openai_api_key, streaming=True)
+llm = OpenAI(temperature=0, openai_api_key="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", streaming=True)
 params = {
   "engine": "google",
   "q": "courses site:uon.edu.au",
