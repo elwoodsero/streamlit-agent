@@ -29,21 +29,21 @@ st.set_page_config(
 
 "# 🛣️📝🗑️ Coffs Council Demo"
 
-# Setup credentials in Streamlit
-#user_openai_api_key = st.sidebar.text_input(
-#    "Council Name", type="text", help="Set this to run your own custom questions."
-#)
+ Setup credentials in Streamlit
+user_openai_api_key = st.sidebar.text_input(
+    "Council Name", type="text", help="Set this to run your own custom questions."
+)
 
 #user_serp_api_key = st.sidebar.text_input(
 #    "SERP API Key", type="password", help="Set this to run your own custom questions."
 #)
 
-#if user_openai_api_key:
-#    openai_api_key = user_openai_api_key
-#    enable_custom = True
-#else:
-#    openai_api_key = "not_supplied"
-#    enable_custom = False
+if user_openai_api_key:
+    openai_api_key = user_openai_api_key
+    enable_custom = True
+else:
+    openai_api_key = "not_supplied"
+    enable_custom = False
 
 # Tools setup
 llm = OpenAI(temperature=0, openai_api_key="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", streaming=True)
