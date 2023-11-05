@@ -27,7 +27,7 @@ st.set_page_config(
     page_title="MRKL", page_icon="🛣️", layout="wide", initial_sidebar_state="collapsed"
 )
 
-"# 🛣️📝🗑️ Coffs Council Demo"
+"🛣️📝🗑️ Coffs Council Demo"
 
 #Setup credentials in Streamlit
 user_openai_api_key = st.sidebar.text_input(
