@@ -30,25 +30,24 @@ st.set_page_config(
 "# 🛣️📝🗑️ Coffs Council Demo"
 
 # Setup credentials in Streamlit
-user_openai_api_key = st.sidebar.text_input(
-    "OpenAI API Key", type="password", help="Set this to run your own custom questions."
-)
+#user_openai_api_key = st.sidebar.text_input(
+#    "OpenAI API Key", type="password", help="Set this to run your own custom questions."
+#)
 
-user_serp_api_key = st.sidebar.text_input(
-    "SERP API Key", type="password", help="Set this to run your own custom questions."
-)
+#user_serp_api_key = st.sidebar.text_input(
+#    "SERP API Key", type="password", help="Set this to run your own custom questions."
+#)
 
-if user_openai_api_key:
-    openai_api_key = user_openai_api_key
-    enable_custom = True
-else:
-    openai_api_key = "not_supplied"
-    enable_custom = False
+#if user_openai_api_key:
+#    openai_api_key = user_openai_api_key
+#    enable_custom = True
+#else:
+#    openai_api_key = "not_supplied"
+#    enable_custom = False
 
 # Tools setup
 llm = OpenAI(temperature=0, openai_api_key=openai_api_key, streaming=True)
 params = {
-  #"serpapi_api_key": "d2e7590ee8631500fba079ca3a68e8d8b6d7b7189e2b77483e2e5f79cd05250e",
   "engine": "google",
   "q": "courses site:uon.edu.au",
   "google_domain": "google.com.au",
