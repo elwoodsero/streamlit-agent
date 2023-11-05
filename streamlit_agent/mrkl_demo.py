@@ -24,10 +24,10 @@ SAVED_SESSIONS = {
 }
 
 st.set_page_config(
-    page_title="MRKL", page_icon="🦜", layout="wide", initial_sidebar_state="collapsed"
+    page_title="MRKL", page_icon="🛣️", layout="wide", initial_sidebar_state="collapsed"
 )
 
-"# 🦜🔗 MRKL"
+"# 🛣️📝🗑️ Coffs Council Demo"
 
 # Setup credentials in Streamlit
 user_openai_api_key = st.sidebar.text_input(
