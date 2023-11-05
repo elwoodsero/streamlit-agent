@@ -38,6 +38,8 @@ user_serp_api_key = st.sidebar.text_input(
     "SERP API Key", type="password", help="Set this to run your own custom questions."
 )
 
+SERPAPI_API_KEY = "d2e7590ee8631500fba079ca3a68e8d8b6d7b7189e2b77483e2e5f79cd05250e"
+
 if user_openai_api_key:
     openai_api_key = user_openai_api_key
     enable_custom = True
@@ -48,10 +50,10 @@ else:
 # Tools setup
 llm = OpenAI(temperature=0, openai_api_key=openai_api_key, streaming=True)
 params = {
-  "serpapi_api_key": "d2e7590ee8631500fba079ca3a68e8d8b6d7b7189e2b77483e2e5f79cd05250e",
+  #"serpapi_api_key": "d2e7590ee8631500fba079ca3a68e8d8b6d7b7189e2b77483e2e5f79cd05250e",
   "engine": "google",
   "q": "courses site:uon.edu.au",
-  "google_domain": "google.com",
+  "google_domain": "google.com.au",
   "gl": "us",
   "hl": "en"
 }
@@ -61,7 +63,7 @@ db = SQLDatabase.from_uri(f"sqlite:///{DB_PATH}")
 db_chain = SQLDatabaseChain.from_llm(llm, db)
 tools = [
     Tool(
-        name="Search",
+        name="Google Search",
         func=search.run,
         description="useful for when you need to answer questions about current events.",
     ),
