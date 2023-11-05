@@ -42,7 +42,7 @@ if user_serp_api_key:
     serp_api_key = user_serp_api_key
     enable_custom = True
 else:
-    openai_api_key = "not_supplied"
+    serp_api_key = "not_supplied"
     enable_custom = False
 
 if user_openai_api_key:
