@@ -31,7 +31,7 @@ st.set_page_config(
 
 #Setup credentials in Streamlit
 user_openai_api_key = st.sidebar.text_input(
-    "Council Name", type="text", help="Set this to run your own custom questions."
+    "Council Name", type="default", help="Set this to run your own custom questions."
 )
 
 #user_serp_api_key = st.sidebar.text_input(
