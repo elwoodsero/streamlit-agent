@@ -48,7 +48,7 @@ else:
 # Tools setup
 llm = OpenAI(temperature=0, openai_api_key=openai_api_key, streaming=True)
 params = {
-  "api_key": "d2e7590ee8631500fba079ca3a68e8d8b6d7b7189e2b77483e2e5f79cd05250e",
+  "serpapi_api_key": "d2e7590ee8631500fba079ca3a68e8d8b6d7b7189e2b77483e2e5f79cd05250e",
   "engine": "google",
   "q": "courses site:uon.edu.au",
   "google_domain": "google.com",
