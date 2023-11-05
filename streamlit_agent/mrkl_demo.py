@@ -29,7 +29,7 @@ st.set_page_config(
 
 "# 🛣️📝🗑️ Coffs Council Demo"
 
- Setup credentials in Streamlit
+#Setup credentials in Streamlit
 user_openai_api_key = st.sidebar.text_input(
     "Council Name", type="text", help="Set this to run your own custom questions."
 )
