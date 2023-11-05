@@ -55,7 +55,7 @@ params = {
   "gl": "us",
   "hl": "en"
 }
-search = SerpAPIWrapper(serp_api_key="d2e7590ee8631500fba079ca3a68e8d8b6d7b7189e2b77483e2e5f79cd05250e", params=params)
+search = SerpAPIWrapper(serpapi_api_key="d2e7590ee8631500fba079ca3a68e8d8b6d7b7189e2b77483e2e5f79cd05250e", params=params)
 llm_math_chain = LLMMathChain.from_llm(llm)
 db = SQLDatabase.from_uri(f"sqlite:///{DB_PATH}")
 db_chain = SQLDatabaseChain.from_llm(llm, db)
