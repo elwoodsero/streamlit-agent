@@ -31,7 +31,7 @@ st.set_page_config(
 
 # Setup credentials in Streamlit
 #user_openai_api_key = st.sidebar.text_input(
-#    "OpenAI API Key", type="password", help="Set this to run your own custom questions."
+#    "Council Name", type="text", help="Set this to run your own custom questions."
 #)
 
 #user_serp_api_key = st.sidebar.text_input(
@@ -85,7 +85,7 @@ with st.form(key="form"):
     prefilled = st.selectbox("Sample questions", sorted(SAVED_SESSIONS.keys())) or ""
     user_input = ""
 
-    if enable_custom:
+    if not enable_custom:
         user_input = st.text_input("Or, ask your own question")
     if not user_input:
         user_input = prefilled
