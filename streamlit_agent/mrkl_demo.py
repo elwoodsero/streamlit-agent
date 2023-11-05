@@ -8,7 +8,7 @@ from langchain.agents import initialize_agent, Tool
 from langchain.callbacks import StreamlitCallbackHandler
 from langchain.chains import LLMMathChain
 from langchain.llms import OpenAI
-from langchain.utilities import DuckDuckGoSearchAPIWrapper
+from langchain.utilities import SerpAPIWrapper
 from langchain_experimental.sql import SQLDatabaseChain
 
 from streamlit_agent.callbacks.capturing_callback_handler import playback_callbacks
@@ -43,7 +43,15 @@ else:
 
 # Tools setup
 llm = OpenAI(temperature=0, openai_api_key=openai_api_key, streaming=True)
-search = DuckDuckGoSearchResults()
+params = {
+  api_key: "d2e7590ee8631500fba079ca3a68e8d8b6d7b7189e2b77483e2e5f79cd05250e",
+  engine: "google",
+  q: "courses site:uon.edu.au",
+  google_domain: "google.com",
+  gl: "us",
+  hl: "en"
+}
+search = SerpAPIWrapper(params=params)
 llm_math_chain = LLMMathChain.from_llm(llm)
 db = SQLDatabase.from_uri(f"sqlite:///{DB_PATH}")
 db_chain = SQLDatabaseChain.from_llm(llm, db)
@@ -51,7 +59,7 @@ tools = [
     Tool(
         name="Search",
         func=search.run,
-        description="useful for when you need to answer questions about current events. Searches should only include content from https://newcastle.nsw.gov.au/ website",
+        description="useful for when you need to answer questions about current events.",
     ),
     Tool(
         name="Calculator",
