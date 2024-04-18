@@ -7,19 +7,12 @@ from langchain.agents.agent_types import AgentType
 from langchain.callbacks import StreamlitCallbackHandler
 from langchain.agents.agent_toolkits import SQLDatabaseToolkit
 
-st.set_page_config(page_title="LangChain: Chat with SQL DB", page_icon="🦜")
-st.title("🦜 LangChain: Chat with SQL DB")
+st.set_page_config(page_title="LangChain: Chat with SQL DB", page_icon="🏍️")
+st.title("🤖🏍️ Robo Racer 🏍️🤖")
 
 # User inputs
-radio_opt = ["Use sample database - Chinook.db", "Connect to your SQL database"]
-selected_opt = st.sidebar.radio(label="Choose suitable option", options=radio_opt)
-if radio_opt.index(selected_opt) == 1:
-    db_uri = st.sidebar.text_input(
-        label="Database URI", placeholder="mysql://user:pass@hostname:port/db"
-    )
-else:
-    db_filepath = (Path(__file__).parent / "Chinook.db").absolute()
-    db_uri = f"sqlite:////{db_filepath}"
+db_filepath = (Path(__file__).parent / "Chinook.db").absolute()
+db_uri = f"sqlite:////{db_filepath}"
 
 openai_api_key = st.sidebar.text_input(
     label="OpenAI API Key",
